@@ -26,11 +26,12 @@ namespace HairSalon
     [Fact]
     public void Test_DisplayListOfClientsOfAStylist()
     {
-      Client newClient = new Client("David", 1);
-      newClient.Save();
+      Client fakeClient = new Client("David", 1);
+      fakeClient.Save();
 
-      List<Client> ListOfClients = Client.GetAll();
-      string test = ListOfClients[0].GetName();
+      Client newClient = Client.Find(fakeClient.GetId());
+      List<Client> listOfClient = Client.GetAll();
+      string test = listOfClient[0].GetName();
 
       Assert.Equal("David", test);
     }
