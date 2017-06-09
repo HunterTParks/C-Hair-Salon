@@ -30,9 +30,9 @@ namespace HairSalon
       newClient.Save();
 
       List<Client> ListOfClients = Client.GetAll();
-      List<Client> DefaultList = new List<Client>{newClient};
+      string test = ListOfClients[0].GetName();
 
-      Assert.Equal(ListOfClients, DefaultList);
+      Assert.Equal("David", test);
     }
 
     public void Dispose()
