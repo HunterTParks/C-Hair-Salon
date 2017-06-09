@@ -12,11 +12,28 @@ This application will display a list of stylist you can choose from. You can add
 | User will be able to change the name of a certain client | User hits button that says 'Change client' and completes form | After you hit submit, a webpage saying, 'Success!' Will appear |
 
 #### Setup
+* Go to the link https://github.com/HunterTParks/C-Hair-Salon
+* Clone the repository
+* Open Powershell
+* In Powershell, Navigate to the folder you downloaded
+* Once in the folder, run the command 'dnx kestrel' without the quotes
+* Navigate to the URL on any web browser 'localhost:5004'
+* Enjoy
+* Once you're done, go back to Powershell and press CTRL and C
 
 #### Bugs
+There are no known bugs at this time
 
 #### Support
+If you would like to contact me, feel free at hunter.thomas.parks@gmail.com
 
 #### Technologies used
+* HTML
+* CSS
+* BOOTSTRAP
+* SQL
 
 #### License
+THIS SOFTWARE IS LICENSED UNDER THE MIT SOFTWARE LICENSE
+
+##### COPYRIGHT 2017 *_Hunter Parks_*
