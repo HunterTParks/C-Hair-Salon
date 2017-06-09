@@ -15,7 +15,7 @@ namespace HairSalon
     }
 
     [Fact]
-    public void Test_IsPersonTheSame()
+    public void Test_IsStylistTheSame()
     {
       Stylist firstStylist = new Stylist("Hilary");
       Stylist secondStylist = new Stylist("Hilary");
