@@ -23,11 +23,17 @@ namespace HairSalon
       Assert.Equal(firstClient, secondClient);
     }
 
-    // [Fact]
-    // public void Test_DisplayListOfClientsOfAStylist
-    // {
-    //
-    // }
+    [Fact]
+    public void Test_DisplayListOfClientsOfAStylist()
+    {
+      Client newClient = new Client("David", 1);
+      newClient.Save();
+
+      List<Client> ListOfClients = Client.GetAll();
+      List<Client> DefaultList = new List<Client>{newClient};
+
+      Assert.Equal(ListOfClients, DefaultList);
+    }
 
     public void Dispose()
     {
