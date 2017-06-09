@@ -14,6 +14,15 @@ namespace HairSalon
       DBConfiguration.ConnectionString  = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
     }
 
+    [Fact]
+    public void Test_IsClientTheSame()
+    {
+      Client firstClient = new Client("David");
+      Client secondClient = new Client("David");
+
+      Assert.Equal(firstClient, secondClient);
+    }
+
     public void Dispose()
     {
       Client.DeleteAll();
