@@ -1,0 +1,11 @@
+@{
+  Layout = "Shared/_layout.cshtml";
+}
+
+@foreach(var client in @Model)
+{
+  <p>@client.GetName()</p>
+}
+<p>
+
+<a href="/">CLICK HERE</a> To go back!

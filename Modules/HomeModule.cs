@@ -24,7 +24,7 @@ namespace HairSalon
       };
       Get["/Stylist/Client/All"] = _ => {
         List<Client> allClients = Client.GetAll();
-        return View["StylistClients.cshtml", allClients];
+        return View["AllClients.cshtml", allClients];
       };
       Get["/Stylist/new"] = _ => {
         return View["newStylist.cshtml"];
@@ -37,7 +37,7 @@ namespace HairSalon
       };
 
       Get["/Client/new/{id}"] = parameters => {
-        List<Client> newClient = Client.Find(parameters.id);
+        List<Client> newClient = Client.FindList(parameters.id);
         List<Stylist> allStylist = Stylist.GetAll();
         return View["newClient.cshtml", newClient];
       };
