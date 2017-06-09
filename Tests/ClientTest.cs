@@ -23,6 +23,12 @@ namespace HairSalon
       Assert.Equal(firstClient, secondClient);
     }
 
+    [Fact]
+    public void Test_DisplayListOfClientsOfAStylist
+    {
+
+    }
+
     public void Dispose()
     {
       Client.DeleteAll();
