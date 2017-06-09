@@ -29,7 +29,7 @@ namespace HairSalon
       Client fakeClient = new Client("David", 1);
       fakeClient.Save();
 
-      Client newClient = Client.Find(fakeClient.GetId());
+      // List<Client> newClient = Client.Find(fakeClient.GetId());
       List<Client> listOfClient = Client.GetAll();
       string test = listOfClient[0].GetName();
 
@@ -51,7 +51,7 @@ namespace HairSalon
       Client newClient = new Client("David", 1);
       newClient.Save();
 
-      Client fakeClient = Client.Find(newClient.GetId()).ChangeName("Mason");
+      Client fakeClient = Client.Find(newClient.GetId())[0].ChangeName("Mason");
       Assert.Equal("Mason", fakeClient.GetName());
     }
 

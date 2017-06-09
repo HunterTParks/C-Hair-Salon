@@ -113,8 +113,10 @@ namespace HairSalon
       return allClients;
     }
 
-    public static Client Find(int id)
+    public static List<Client> Find(int id)
     {
+      List<Client> foundClients = new List<Client>{};
+
       SqlConnection conn = DB.Connection();
       conn.Open();
 
@@ -127,17 +129,19 @@ namespace HairSalon
 
       SqlDataReader rdr = cmd.ExecuteReader();
 
-      int foundClientId = 0;
-      string foundClientName = null;
-      int foundStylistid = 0;
 
       while(rdr.Read())
       {
+        int foundClientId = 0;
+        string foundClientName = null;
+        int foundStylistid = 0;
         foundClientId = rdr.GetInt32(0);
         foundClientName = rdr.GetString(1);
         foundStylistid = rdr.GetInt32(2);
+        Client foundClient = new Client(foundClientName, foundStylistid, foundClientId);
+        foundClients.Add(foundClient);
       }
-      Client foundClient = new Client(foundClientName, foundStylistid, foundClientId);
+
 
       if(rdr != null)
       {
@@ -147,7 +151,7 @@ namespace HairSalon
       {
         conn.Close();
       }
-      return foundClient;
+      return foundClients;
     }
 
     public Client ChangeName(string Name)
