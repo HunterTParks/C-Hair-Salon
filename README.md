@@ -9,7 +9,7 @@ This application will display a list of stylist you can choose from. You can add
 | User will be able to see all of the stylist | User does nothing | Shows entire list of current hired stylists |
 | User will be able to display the basic information of a stylist and their clients | User Clicks on "Hillary" | Shows name and basic information of stylist |
 | User will be able to add stylist that were just hired | User hits button that says 'Add Stylist' and completes form | After you hit submit, a webpage saying, 'Success!' Will appear |
-|
+| User will be able to change the name of a certain client | User hits button that says 'Change client' and completes form | After you hit submit, a webpage saying, 'Success!' Will appear |
 
 #### Setup
 
