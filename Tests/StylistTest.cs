@@ -22,6 +22,15 @@ namespace HairSalon
       Assert.Equal(firstStylist, secondStylist);
     }
 
-    
+    [Fact]
+    public void Test_AddNameToDatabase_Hilary()
+    {
+      Stylist newStylist = new Stylist("Hilary");
+      newStylist.Save();
+      List<Stylist> ListOfStylist = Stylist.GetAll();
+      List<Stylist TestList = new List<Stylist>{newStylist};
+
+      Assert.Equal(ListOfStylist[0], TestList[0]);
+    }
   }
 }
