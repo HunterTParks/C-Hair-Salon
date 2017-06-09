@@ -18,7 +18,7 @@ namespace HairSalon
     public void Test_IsPersonTheSame()
     {
       Stylist firstStylist = new Stylist("Hilary");
-      Sylist secondStylist = new Stylist("Hilary");
+      Stylist secondStylist = new Stylist("Hilary");
       Assert.Equal(firstStylist, secondStylist);
     }
 
@@ -28,9 +28,14 @@ namespace HairSalon
       Stylist newStylist = new Stylist("Hilary");
       newStylist.Save();
       List<Stylist> ListOfStylist = Stylist.GetAll();
-      List<Stylist TestList = new List<Stylist>{newStylist};
+      List<Stylist> TestList = new List<Stylist>{newStylist};
 
       Assert.Equal(ListOfStylist[0], TestList[0]);
+    }
+
+    public void Dispose()
+    {
+      Stylist.DeleteAll();
     }
   }
 }
