@@ -8,11 +8,13 @@ namespace HairSalon
   {
     private string _name;
     private int _id;
+    private int _stylistId;
 
-    public Client(string Name, int Id = 0)
+    public Client(string Name, int StylistId, int Id = 0)
     {
       _name = Name;
       _id = Id;
+      _stylistId = StylistId;
     }
 
     public string GetName()
@@ -22,6 +24,26 @@ namespace HairSalon
     public int GetId()
     {
       return _id;
+    }
+    public int GetStylistId()
+    {
+      return _stylistId;
+    }
+
+    public override bool Equals(System.Object otherClient)
+    {
+      if(!(otherClient is Client))
+      {
+        return false;
+      }
+      else
+      {
+        Client newClient = (Client) otherClient;
+        bool idEquality = (this.GetId() == newClient.GetId());
+        bool nameEquality = (this.GetName() == newClient.GetName());
+        bool stylistIdEquality = (this.GetStylistId() == newClient.GetStylistId());
+        return (idEquality && nameEquality && stylistIdEquality);
+      }
     }
 
     public static void DeleteAll()

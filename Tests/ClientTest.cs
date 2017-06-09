@@ -17,17 +17,17 @@ namespace HairSalon
     [Fact]
     public void Test_IsClientTheSame()
     {
-      Client firstClient = new Client("David");
-      Client secondClient = new Client("David");
+      Client firstClient = new Client("David", 1);
+      Client secondClient = new Client("David", 1);
 
       Assert.Equal(firstClient, secondClient);
     }
 
-    [Fact]
-    public void Test_DisplayListOfClientsOfAStylist
-    {
-
-    }
+    // [Fact]
+    // public void Test_DisplayListOfClientsOfAStylist
+    // {
+    //
+    // }
 
     public void Dispose()
     {
