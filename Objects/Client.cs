@@ -16,7 +16,10 @@ namespace HairSalon
       _id = Id;
       _stylistId = StylistId;
     }
-
+    public void SetName(string Name)
+    {
+      _name = Name;
+    }
     public string GetName()
     {
       return _name;
@@ -145,6 +148,12 @@ namespace HairSalon
         conn.Close();
       }
       return foundClient;
+    }
+
+    public Client ChangeName(string Name)
+    {
+      this._name = Name;
+      return this;
     }
 
     public static void DeleteAll()
