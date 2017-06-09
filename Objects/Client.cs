@@ -120,7 +120,7 @@ namespace HairSalon
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE id = @ClientId", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE stylist_id = @ClientId", conn);
 
       SqlParameter ClientIdParameter = new SqlParameter();
       ClientIdParameter.ParameterName = "@ClientId";
