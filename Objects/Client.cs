@@ -113,7 +113,41 @@ namespace HairSalon
       return allClients;
     }
 
-    public static List<Client> Find(int id)
+    public static Client Find(int id)
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE id = @ClientId", conn);
+      SqlParameter clientIdParameter = new SqlParameter();
+      clientIdParameter.ParameterName = "@ClientId";
+      clientIdParameter.Value = id.ToString();
+      cmd.Parameters.Add(clientIdParameter);
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      int foundClientId = 0;
+      string foundClientName = null;
+      int foundCuisineId = 0;
+      while(rdr.Read())
+      {
+        foundClientId = rdr.GetInt32(0);
+        foundClientName = rdr.GetString(1);
+        foundCuisineId = rdr.GetInt32(2);
+      }
+      Client foundClient = new Client(foundClientName, foundClientId, foundCuisineId);
+
+      if (rdr != null)
+     {
+       rdr.Close();
+     }
+     if (conn != null)
+     {
+       conn.Close();
+     }
+     return foundClient;
+    }
+
+    public static List<Client> FindList(int id)
     {
       List<Client> foundClients = new List<Client>{};
 
@@ -128,7 +162,6 @@ namespace HairSalon
       cmd.Parameters.Add(ClientIdParameter);
 
       SqlDataReader rdr = cmd.ExecuteReader();
-
 
       while(rdr.Read())
       {
@@ -164,7 +197,7 @@ namespace HairSalon
     {
       SqlConnection conn = DB.Connection();
       conn.Open();
-      SqlCommand cmd = new SqlCommand("DELETE FROM clients", conn);
+      SqlCommand cmd = new SqlCommand("DELETE FROM clients;", conn);
       cmd.ExecuteNonQuery();
       conn.Close();
     }

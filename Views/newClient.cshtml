@@ -1,0 +1,18 @@
+@{
+  Layout = "Shared/_layout.cshtml";
+}
+
+<form action="/Client/Success/" method="post">
+<label for="name">What is their name?</label>
+<input type="text" name="name"><br>
+<input type="hidden" name="stylist" value="@Model[0].GetStylistId()">
+
+@* @foreach(var Stylist in @Model)
+{
+  <p>
+    <label for="name">@Stylist.GetName()</label>
+    <input type="radio" name="stylist" value="@Stylist">
+  </p>
+} *@
+
+<button type="submit" name="button">Done?</button>
