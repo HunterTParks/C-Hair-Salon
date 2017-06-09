@@ -9,7 +9,7 @@ namespace HairSalon
   [Collection("HairSalon")]
   public class ClientTest : IDisposable
   {
-    public StylistTest()
+    public ClientTest()
     {
       DBConfiguration.ConnectionString  = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
     }
