@@ -1,0 +1,10 @@
+@{
+  Layout = "Shared/_layout.cshtml";
+}
+
+<ul>
+@foreach(var stylist in @Model)
+{
+  <li><a href = "/Stylist/{id}">@stylist.GetName()</a></li>
+}
+</ul>
