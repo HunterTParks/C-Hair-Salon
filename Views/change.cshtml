@@ -2,7 +2,10 @@
   Layout = "Shared/_layout.cshtml";
 }
 
-<form action="/change/@Model.GetId()/Success" method="post">
+<p>@Model.GetStylistId()</p>
+
+<form action="/change/success/@Model.GetStylistId()" method="post">
+  <input type="hidden" name="_method" value="PATCH">
   <input type="text" name="changeName">
   <button type="submit" name="button">Change Name</button>
 </form>

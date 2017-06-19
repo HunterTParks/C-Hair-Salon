@@ -118,7 +118,7 @@ namespace HairSalon
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE Id = @ClientId", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE id = @ClientId", conn);
       SqlParameter clientIdParameter = new SqlParameter("@ClientId", id);
 
       cmd.Parameters.Add(clientIdParameter);
@@ -193,10 +193,34 @@ namespace HairSalon
       return foundClients;
     }
 
-    public Client ChangeName(string Name)
+    public void ChangeName(string Name)
     {
-      this._name = Name;
-      return this;
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("UPDATE clients SET name = @NewName OUTPUT INSERTED.name WHERE id = @ClientId", conn);
+
+      SqlParameter NameParameter = new SqlParameter("@NewName", Name);
+      cmd.Parameters.Add(NameParameter);
+
+      SqlParameter IdParameter = new SqlParameter("@ClientId", this.GetId());
+      cmd.Parameters.Add(IdParameter);
+
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      while(rdr.Read())
+      {
+        this._name = rdr.GetString(0);
+      }
+
+      if(rdr != null)
+      {
+        rdr.Close();
+      }
+      if(conn != null)
+      {
+        conn.Close();
+      }
     }
 
     public static void DeleteAll()

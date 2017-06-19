@@ -41,31 +41,42 @@ namespace HairSalon
     [Fact]
     public void Test_ChangeNameOfClient()
     {
-      Client newClient = new Client("David", 1);
-      newClient.SetName("Patrick");
+      Client newClient = new Client("Hunter", 10);
       newClient.Save();
 
-      Assert.Equal("Patrick", newClient.GetName());
-    }
-    [Fact]
-    public void Test_ChangeNameOfClientALTERNATE()
-    {
-      Client newClient = new Client("David", 1);
-      newClient.Save();
+      Client testClient = Client.Find(newClient.GetId());
+      testClient.Save();
 
-      Client fakeClient = Client.FindList(newClient.GetStylistId())[0].ChangeName("Mason");
-      Assert.Equal("Mason", fakeClient.GetName());
+      string newName = "Patrick";
+      testClient.ChangeName(newName);
+
+      Assert.Equal(newName, testClient.GetName());
     }
+
+    // [Fact]
+    // public void Test_ChangeNameOfClientALTERNATE()
+    // {
+    //   Client newClient = new Client("David", 1);
+    //   newClient.Save();
+    //
+    //   Client.FindList(newClient.GetStylistId())[0].ChangeName("Mason");
+    //
+    //   Assert.Equal("Mason", newClient.GetName());
+    // }
 
     [Fact]
     public void Test_FindClientFromStylist()
     {
       Stylist newStylist = new Stylist("Hilary", 1);
       newStylist.Save();
+
       Client controlClient = new Client("David", 1);
       controlClient.Save();
 
       Client newClient = Client.Find(1);
+
+      Console.WriteLine(newClient.GetName());
+
       Assert.Equal(controlClient, newClient);
     }
 
