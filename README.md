@@ -14,6 +14,9 @@ This application will display a list of stylist you can choose from. You can add
 #### Setup
 * Go to the link https://github.com/HunterTParks/C-Hair-Salon
 * Clone the repository
+* Navigate to the folder you downloaded
+* Open 'scripts.sql' in your SMSS
+* At the beginning of the script that opens up, enter these two lines : 'CREATE DATABASE [hair_salon];' and 'GO'
 * Open Powershell
 * In Powershell, Navigate to the folder you downloaded
 * Once in the folder, run the command 'dnx kestrel' without the quotes
