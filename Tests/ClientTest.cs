@@ -11,7 +11,8 @@ namespace HairSalon
   {
     public ClientTest()
     {
-      DBConfiguration.ConnectionString  = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
+      //DBConfiguration.ConnectionString  = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
+      DBConfiguration.ConnectionString = "Data Source=GAMING-PC;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
     }
 
     [Fact]
@@ -54,6 +55,18 @@ namespace HairSalon
 
       Client fakeClient = Client.FindList(newClient.GetStylistId())[0].ChangeName("Mason");
       Assert.Equal("Mason", fakeClient.GetName());
+    }
+
+    [Fact]
+    public void Test_FindClientFromStylist()
+    {
+      Stylist newStylist = new Stylist("Hilary", 1);
+      newStylist.Save();
+      Client controlClient = new Client("David", 1);
+      controlClient.Save();
+
+      Client newClient = Client.Find(1);
+      Assert.Equal(controlClient, newClient);
     }
 
     public void Dispose()

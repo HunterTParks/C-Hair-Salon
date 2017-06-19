@@ -18,7 +18,6 @@ namespace HairSalon
         return View["Stylist.cshtml", AllStylist];
       };
       Get["/Stylist/{id}"] = parameters => {
-        Console.WriteLine(Client.Find(parameters.id));
         List<Client> newClients = Client.FindList(parameters.id);
         return View["StylistClients.cshtml", newClients];
       };
@@ -48,10 +47,28 @@ namespace HairSalon
         return View["Success.cshtml"];
       };
 
-      Post["/deleted"] = parameters => {
-        Client.DeleteAll();
+      Delete["/deleted"] = _ => {
+        Stylist.DeleteAll();
         List<Stylist> allStylist = Stylist.GetAll();
         return View["Stylist.cshtml", allStylist];
+      };
+
+      Delete["/deleted/{id}"] = parameters => {
+        Client newClient = Client.Find(parameters.id);
+        Client.Find(parameters.id).Delete();
+        List<Stylist> allStylist = Stylist.GetAll();
+        return View["Stylist.cshtml", allStylist];
+      };
+
+      Get["/change/{id}"] = parameters => {
+        Client newClient = Client.Find(parameters.id);
+        return View["change.cshtml", newClient];
+      };
+
+      Patch["/change/{id}/Success"] = parameters => {
+        Client newClient = Client.Find(parameters.id);
+        newClient.SetName(Request.Form["changeName"]);
+        return View["index.cshtml"];
       };
     }
   }

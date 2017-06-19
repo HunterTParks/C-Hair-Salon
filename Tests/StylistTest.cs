@@ -11,7 +11,9 @@ namespace HairSalon
   {
     public StylistTest()
     {
-      DBConfiguration.ConnectionString  = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
+      // DBConfiguration.ConnectionString  = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
+      DBConfiguration.ConnectionString = "Data Source=GAMING-PC;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
+
     }
 
     [Fact]
