@@ -73,11 +73,11 @@ namespace HairSalon
       Client controlClient = new Client("David", 1);
       controlClient.Save();
 
-      Client newClient = Client.Find(1);
+      Client newClient = Client.Find(controlClient.GetId());
 
       Console.WriteLine(newClient.GetName());
 
-      Assert.Equal(controlClient, newClient);
+      Assert.Equal(controlClient.GetName(), newClient.GetName());
     }
 
     public void Dispose()

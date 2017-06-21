@@ -32,8 +32,9 @@ namespace HairSalon
 
       List<Stylist> ListOfStylist = Stylist.GetAll();
       List<Stylist> DefaultList = new List<Stylist>{newStylist};
+      // List<Stylist> DefaultList = new List<Stylist>{};
 
-      Assert.Equal(ListOfStylist, DefaultList);
+      Assert.Equal(ListOfStylist[0].GetName(), DefaultList[0].GetName());
     }
 
     [Fact]
