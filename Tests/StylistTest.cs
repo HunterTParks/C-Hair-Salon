@@ -29,12 +29,13 @@ namespace HairSalon
     {
       Stylist newStylist = new Stylist("Hilary");
       newStylist.Save();
+      Stylist testStylist = new Stylist("Markus");
+      testStylist.Save();
 
       List<Stylist> ListOfStylist = Stylist.GetAll();
-      List<Stylist> DefaultList = new List<Stylist>{newStylist};
-      // List<Stylist> DefaultList = new List<Stylist>{};
+      List<Stylist> DefaultList = new List<Stylist>{newStylist, testStylist};
 
-      Assert.Equal(ListOfStylist[0].GetName(), DefaultList[0].GetName());
+      Assert.Equal(ListOfStylist[1].GetName(), DefaultList[1].GetName());
     }
 
     [Fact]
