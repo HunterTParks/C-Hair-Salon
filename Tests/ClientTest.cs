@@ -27,9 +27,11 @@ namespace HairSalon
     [Fact]
     public void Test_DisplayListOfClientsOfAStylist()
     {
-      Client fakeClient = new Client("David", 1);
-      Client anotherClient = new Client("Sarah", 1);
+      Stylist newStylist = new Stylist("Hunter", 1);
+      newStylist.Save();
+      Client fakeClient = new Client("David", 1, 1);
       fakeClient.Save();
+      Client anotherClient = new Client("Sarah", 1, 2);
       anotherClient.Save();
 
       List<Client> newClient = Client.FindList(fakeClient.GetStylistId());
@@ -48,7 +50,7 @@ namespace HairSalon
       testClient.Save();
 
       string newName = "Patrick";
-      testClient.ChangeName(newName);
+      testClient.Update(newName);
 
       Assert.Equal(newName, testClient.GetName());
     }

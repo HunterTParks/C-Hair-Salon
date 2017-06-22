@@ -193,7 +193,7 @@ namespace HairSalon
       return foundClients;
     }
 
-    public void ChangeName(string Name)
+    public void Update(string Name)
     {
       SqlConnection conn = DB.Connection();
       conn.Open();
