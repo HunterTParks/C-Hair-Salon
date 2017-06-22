@@ -1,19 +1,24 @@
 @{
   Layout = "Shared/_layout.cshtml";
 }
+<div class="well">
+  <ul>
+    @foreach(var stylist in @Model)
+    {
+      <div class="panel panel-success">
 
-<ul>
-@foreach(var stylist in @Model)
-{
-  <li><a href = "/Stylist/@stylist.GetId()">@stylist.GetName()</a></li>
-}
-</ul>
+        <li><a href = "/Stylist/@stylist.GetId()">@stylist.GetName()</a></li>
+      </div>
+    }
+  </ul>
 
-<p>
-  <a href="/">Click here to go back!</a>
-</p>
+  <p>
+    <a href="/">Click here to go back!</a>
+  </p>
 
-<form action="/deleted" method="post">
-  <input type="hidden" name="_method" value="DELETE">
-  <button type="submit" name="button">Delete All</button>
-</form>
+  <form action="/deleted" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" name="button">Delete All</button>
+  </form>
+
+</div>

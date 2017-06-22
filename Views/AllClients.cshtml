@@ -1,7 +1,10 @@
 @{
   Layout = "Shared/_layout.cshtml";
 }
-
+@if(Model.Count < 1)
+{
+  <p>You have no clients!</p>
+}
 @foreach(var client in @Model)
 {
   <p>@client.GetName()</p>

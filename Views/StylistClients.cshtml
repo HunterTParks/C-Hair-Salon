@@ -13,24 +13,28 @@ else
     {
       break;
     }
-    <form action="/deleted/@client.GetId()" method="post">
-      <input type="hidden" name="_method" value="DELETE">
-      <p>@client.GetName()</p> <button type="submit" name="button">Delete</button>
-    </form>
-    <p><a href="/change/@client.GetId()">Click here </a> to change name</p>
+    <div class="container panel panel-success">
+      <form action="/deleted/@client.GetId()" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <p>@client.GetName()</p> <button type="submit" name="button">Delete</button>
+      </form>
+      <p><a href="/change/@client.GetId()">Click here </a> to change name</p>
+
+    </div>
   }
-  <p>
-    <form action="/deleted" method="post">
-      <input type="hidden" name="_method" value="DELETE">
-      <button type="submit" name="button">Delete All</button>
-    </form>
-  </p>
 }
 <p>
-  <a href="/Client/new/@Model[0].GetStylistId()">Click here</a> to add a client to this stylist
-</p>
-<p>
+  <p>
+    <a href="/Client/new/@Model[0].GetStylistId()">Click here</a> to add a client to this stylist
+  </p>
   <a href="/Stylist">Click here</a> to go back
 </p>
 
 @* <a href="/Client/new">Click here</a> to add a client to this stylist *@
+
+<p>
+  <form action="/deleted" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" name="button">Delete All</button>
+  </form>
+</p>
